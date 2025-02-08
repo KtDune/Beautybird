@@ -1,7 +1,7 @@
 const page = () => {
   return (
     <div>
-      New page in town!!!
+      Test changes
     </div>
   )
 }
