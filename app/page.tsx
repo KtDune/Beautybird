@@ -1,7 +1,7 @@
 const page = () => {
   return (
     <div>
-      Test changes
+      Testing if CI works
     </div>
   )
 }

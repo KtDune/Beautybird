@@ -1,0 +1,26 @@
+name: Auto Pull Request
+
+on:
+  push:
+    branches:
+      - master  # Triggers when pushing to master
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Create Branch
+        run: |
+          git checkout -b auto-pr-${{ github.run_number }}
+          git push origin auto-pr-${{ github.run_number }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: auto-pr-${{ github.run_number }}
+          base: master
+          title: "Auto-generated PR for master update"
+          body: "This PR was automatically created after pushing to master."
