@@ -1,0 +1,11 @@
+{
+    "extends": ["next/core-web-vitals"],
+    "rules": {
+      "indent": ["error", 2], // Enforce 2-space indentation
+      "no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}
+  

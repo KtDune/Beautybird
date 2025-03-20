@@ -1,17 +1,17 @@
-name: Frontend push actions
+name: Frontend build process
 
 on:
   push:
-    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: gh pr create -B master -H origin/master -title "Merge branch 'master' to 'origin.master' --body 'Created by githu bactions'"
-      
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install -g pnpm && pnpm i
+
+      - name: Build application
+        run: pnpm build
